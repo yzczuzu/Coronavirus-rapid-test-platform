@@ -1,0 +1,1 @@
+# Coronavirus-rapid-test-platform
