@@ -7,7 +7,7 @@ export default class Header extends Component {
     super(props);
 
     this.state = {
-      headerstyle: false,
+      headerstyle1: false,
       headerstyle2: false,
       headerstyle3: false,
       headerstyle4: false,
@@ -34,7 +34,13 @@ export default class Header extends Component {
       this.setState({
         headerstyle1: true,
       });
-    } else if (window.location.pathname === "/twofactorauth") {
+    } else if (
+      window.location.pathname === "/twofactorauth" ||
+      window.location.pathname === "/login" ||
+      window.location.pathname === "/verifyemail" ||
+      window.location.pathname === "/forgotpassword" ||
+      window.location.pathname === "/"
+    ) {
       this.setState({
         headerstyle2: true,
       });
