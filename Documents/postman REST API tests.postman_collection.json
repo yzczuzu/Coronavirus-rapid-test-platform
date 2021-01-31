@@ -1,0 +1,1140 @@
+{
+	"info": {
+		"_postman_id": "81baa8dc-5775-441e-b4b0-f359a626f851",
+		"name": "postman REST API tests",
+		"description": "Coronavirus rapid test data platform APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/checkverifyemail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Email could be verified\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/checkverifyemail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkverifyemail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/addverifyemail",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Email sent\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/addverifyemail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addverifyemail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/verifylink",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"id\", `2lztok1hpi8wdw1weyvdc`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Email activation successful\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/verifylink",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"verifylink"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/checkactiveemail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"id\", `2lztok1hpi8wdw1weyvdc`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Email is verified\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/checkactiveemail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkactiveemail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/checkform",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Email can be sent\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/checkform",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkform"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/sendform",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"pm.globals.set(\"firstName\", `Zhicheng`);\r",
+							"pm.globals.set(\"lastName\", `Yu`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Email sent\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "{{firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "{{lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/sendform",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sendform"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `kingzuzu96@gmail.com`);\r",
+							"pm.globals.set(\"password\", `97311229NBAdunk`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a token property\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.token).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"login successfully\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/twofactorauth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"pm.globals.set(\"logincode\", Math.floor(Math.random() * 10000000 + 1));\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Email sent\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "logincode",
+							"value": "{{logincode}}",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/twofactorauth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"twofactorauth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/checkloginstatus",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"login status\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/checkloginstatus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkloginstatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/checklogincode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Correct code\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/checklogincode",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checklogincode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/addloginstatusfalse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"No login\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/addloginstatusfalse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addloginstatusfalse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/addloginstatustrue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"login\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/addloginstatustrue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addloginstatustrue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/removecode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"code remove\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/removecode",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"removecode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/checkemail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Account can be created\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/checkemail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkemail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"pm.globals.set(\"password\", '97311229NBAdunk');\r",
+							"pm.globals.set(\"companyname\", 'Fontys');\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Account was successfully created\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "companyname",
+							"value": "Fontys",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/checkoldpassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"pm.globals.set(\"password\", '97311229NBAdunk');\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Account was successfully created\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/checkoldpassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkoldpassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/changepassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"pm.globals.set(\"password\", '97311229nbaDunk');\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Password has been changed\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/changepassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"changepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/checkregisteremail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Password can be reset\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/checkregisteremail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkregisteremail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/resetpassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"email\", `z.yu@student.fontys.nl`);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has a JSON body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Confirm response message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.message).to.eql(\"Password has been reset\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/resetpassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resetpassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/generatepasswords",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/generatepasswords",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"generatepasswords"
+					]
+				},
+				"description": "generate random password "
+			},
+			"response": []
+		}
+	]
+}

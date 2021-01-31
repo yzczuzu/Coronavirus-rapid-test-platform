@@ -1,0 +1,12 @@
+stages:
+  - test
+test:
+  stage: test
+  tags:
+    - ci
+  script:
+    - echo "Testing App"
+    - cd client/
+    - npm install
+    - npm test
+    - echo "Test successfully!"
