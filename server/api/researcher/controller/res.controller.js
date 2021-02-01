@@ -122,6 +122,13 @@ module.exports = {
             data: results.email,
           });
         }
+        if (results.active == null) {
+          return res.json({
+            success: 1,
+            message: "Email is not verified",
+            data: results.email,
+          });
+        }
       } else {
         return res.json({
           success: 0,

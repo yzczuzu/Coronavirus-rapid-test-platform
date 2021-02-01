@@ -33,7 +33,11 @@ export default class Link extends Component {
           this.setState({
             verifyFail: true,
           });
-        } else {
+        }
+        if (
+          res.data.message === "Email is not verified" ||
+          res.data.message === "Email is verified"
+        ) {
           axios
             .post("http://localhost:8080/verifylink", data)
             .then((res) => {
