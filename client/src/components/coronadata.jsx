@@ -26,10 +26,6 @@ export default class Testcorona extends Component {
     };
   }
 
-  componentDidUpdate() {
-    this.componentDidMount();
-  }
-
   componentDidMount() {
     const token = localStorage.getItem("token");
 
